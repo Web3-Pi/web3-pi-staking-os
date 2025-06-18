@@ -99,10 +99,6 @@ curl https://apt.status.im/pubkey.asc -o /etc/apt/trusted.gpg.d/apt-status-im.as
 # Ethereum PPA for Geth
 add-apt-repository -y ppa:ethereum/ethereum 
 
-# Web3 Pi repository
-wget -O - https://apt.web3pi.io/public-key.gpg | gpg --dearmor -o /etc/apt/keyrings/web3-pi-apt-repo.gpg
-echo "deb [signed-by=/etc/apt/keyrings/web3-pi-apt-repo.gpg] https://apt.web3pi.io/ noble-staking main beta" | tee /etc/apt/sources.list.d/web3-pi-staking.list
-
 # Grafana repository
 wget -q -O /usr/share/keyrings/grafana.key https://apt.grafana.com/gpg.key
 echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://apt.grafana.com stable main" | tee -a /etc/apt/sources.list.d/grafana.list
