@@ -138,8 +138,8 @@ systemctl enable grafana-server
 apt-get install -y cockpit cockpit-pcp cockpit-packagekit
 #--------------------------------------------------------------------------------------------
 
-## Install Web3 Pi packets ##################################################################
-apt-get install -y w3p-network-firewall w3p-two-factor-auth w3p-system-monitor w3p-link w3p-geth-sync-stages-monitoring w3p-script-runner w3p-nimbus-monitoring
+## Install Web3 Pi packages ##################################################################
+#apt-get install -y w3p-network-firewall w3p-two-factor-auth w3p-system-monitor w3p-link w3p-geth-sync-stages-monitoring w3p-script-runner w3p-nimbus-monitoring
 #--------------------------------------------------------------------------------------------
 
 ## Add LCD display support ##############################################################
