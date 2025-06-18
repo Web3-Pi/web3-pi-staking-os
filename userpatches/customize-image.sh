@@ -78,16 +78,16 @@ apt update
 apt install -y software-properties-common apt-utils chrony avahi-daemon git git-extras build-essential
 apt install -y python3-pip python3-netifaces python3-dev libpython3-dev python3-venv
 apt install -y nvme-cli jq speedtest-cli file vim net-tools telnet apt-transport-https gdisk
-apt install -y gcc libraspberrypi-bin iotop screen bpytop ccze iw flashrom figlet neofetch dphys-swapfile
+apt install -y gcc iotop screen bpytop ccze iw figlet neofetch dphys-swapfile
 #--------------------------------------------------------------------------------------------
 
 ## UFW (firewall) ###########################################################################
 apt install -y ufw
 # ToDo: set up firewall rules
-ufw allow 22/tcp comment "SSH"
-ufw allow 9090/tcp comment "Cockpit Web Panel"
-ufw allow 3000/tcp comment "Grafana: Web interface"
-ufw --force enable
+#ufw allow 22/tcp comment "SSH"
+#ufw allow 9090/tcp comment "Cockpit Web Panel"
+#ufw allow 3000/tcp comment "Grafana: Web interface"
+#ufw --force enable
 #--------------------------------------------------------------------------------------------
 
 ## Add APT repository #######################################################################
