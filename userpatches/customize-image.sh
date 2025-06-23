@@ -108,6 +108,9 @@ apt-get update     # Update the package list to include the new repositories
 
 ## Install Ethereum clients #################################################################
 apt-get install -y nimbus-beacon-node nimbus-validator-client ethereum
+
+wget https://github.com/erigontech/erigon/releases/download/v3.0.7/erigon_v3.0.7_linux_amd64v2.tar.gz -P /opt/web3pi/
+tar -xzf /opt/web3pi/erigon_v3.0.7_linux_amd64v2.tar.gz -C /opt/web3pi/
 #--------------------------------------------------------------------------------------------
 
 ## Install InfluxDB #########################################################################
