@@ -166,6 +166,33 @@ git-force-clone -b master https://github.com/raspberrypi/rpi-eeprom /opt/web3pi/
 # This is later used in install.sh to update the firmware
 #--------------------------------------------------------------------------------------------
 
+## UPS APC ##################################################################################
+sed -i 's/^ISCONFIGURED=.*/ISCONFIGURED=yes/' /etc/default/apcupsd # Mark apcupsd as configured
+
+mkdir /opt/web3pi/ups
+chown -R ethereum:ethereum /opt/web3pi/ups
+
+cp /tmp/overlay/ups/apcupsd.conf /etc/apcupsd/apcupsd.conf # Configure USB UPS
+
+cp /tmp/overlay/ups/scripts/* /opt/web3pi/ups/ # Copy UPS scripts
+chmod +x /opt/web3pi/ups/*.sh
+
+# Deploy custom hooks
+echo '#!/bin/bash
+/opt/web3pi/ups/power_lost.sh' > /etc/apcupsd/onbattery
+
+echo '#!/bin/bash
+/opt/web3pi/ups/power_restored.sh' > /etc/apcupsd/offbattery
+
+echo '#!/bin/bash
+/opt/web3pi/ups/graceful_shutdown.sh' > /etc/apcupsd/doshutdown
+
+chmod +x /etc/apcupsd/onbattery /etc/apcupsd/offbattery /etc/apcupsd/doshutdown
+
+# Enable apcupsd service
+systemctl enable apcupsd
+#--------------------------------------------------------------------------------------------
+
 ## Security hardening #######################################################################
 # Lock the root account
 passwd --lock root
